@@ -6,6 +6,9 @@ extends RigidBody2D
 export var potenciaMotor:int = 20
 export var potenciaRotacion:int = 280
 
+##Atributos Onready
+onready var canion:Canion = $Canion
+
 ##Atributos
 var empuje:Vector2 = Vector2.ZERO
 var dirRotacion:int = 0
@@ -20,6 +23,7 @@ func _process(delta: float) -> void:
 
 ##Custom Metods 
 func playerInput() -> void:
+	##Empuje
 	empuje = Vector2.ZERO
 	if Input.is_action_pressed("moverAdelante"):
 		empuje = Vector2(potenciaMotor, 0)
@@ -32,3 +36,10 @@ func playerInput() -> void:
 		dirRotacion -= 1
 	elif Input.is_action_pressed("moverHorario"):
 		dirRotacion += 1
+	
+	##Disparo
+	if Input.is_action_pressed("disparoPrincipal"):
+		canion.setEstaDisparando(true)
+	
+	if Input.is_action_just_released("disparoPrincipal"):
+		canion.setEstaDisparando(false)
