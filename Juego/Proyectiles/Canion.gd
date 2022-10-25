@@ -2,6 +2,7 @@
 class_name Canion
 extends Node2D
 
+
 ##Atributos export
 export var proyectil:PackedScene = null
 export var cadenciaDisparo:float = 0.8
@@ -13,6 +14,8 @@ onready var timerEnfriamiento:Timer = $Enfriamiento
 onready var disparoSFX:AudioStreamPlayer2D = $DisparosSFX
 onready var estaEnfriado:bool = true
 onready var estaDisparando:bool = false setget setEstaDisparando
+onready var puedeDisparar:bool = false setget setPuedeDisparar
+onready var colisionador:CollisionShape2D = $CollisionShape2D
 
 ##Atributos
 var puntosDisparo:Array = []
@@ -20,6 +23,9 @@ var puntosDisparo:Array = []
 ##Setters y Getters
 func setEstaDisparando(disparando: bool) -> void:
 	estaDisparando = disparando
+
+func setPuedeDisparar(duenioPuede: bool) -> void:
+	puedeDisparar = duenioPuede
 
 ##Metodos
 func _ready() -> void:

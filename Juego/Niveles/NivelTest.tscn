@@ -10,6 +10,9 @@ script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 494.441, 289.173 )
+potenciaMotor = 20
+potenciaRotacion = 280
+estelaMaxima = 150
 
 [node name="Proyectil" parent="." instance=ExtResource( 2 )]
 
