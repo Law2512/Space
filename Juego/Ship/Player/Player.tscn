@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Ship/Player/player_orange.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Ship/Player/MaterialFisico.tres" type="PhysicsMaterial" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Juego/Proyectiles/LaserBeam/LaserBeam2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Juego/Ship/Player/Trail/Trail2D.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Juego/Ship/Player/Motor/MotorSFX.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Juego/Proyectiles/ProyectilPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Juego/Ship/Player/impactoSFX.ogg" type="AudioStream" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 36.1996
@@ -63,6 +65,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Canion" parent="." instance=ExtResource( 4 )]
+proyectil = ExtResource( 8 )
 
 [node name="PuntoIzquierdo" parent="Canion" index="0"]
 position = Vector2( 0, -32 )
@@ -90,6 +93,10 @@ target_path = NodePath("..")
 autoplay = "spawn"
 anims/default = SubResource( 2 )
 anims/spawn = SubResource( 3 )
+
+[node name="impactoSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+bus = "SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
