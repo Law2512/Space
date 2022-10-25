@@ -11,18 +11,19 @@ onready var contenedorProyectiles:Node
 ##Metodos
 func _ready() -> void:
 	Eventos.connect("disparo", self, "onDisparo")
+	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 	crearContenedores()
 
 ##Metodos Custom
-func conectarSeniales() -> void:
+func _conectarSeniales() -> void:
 	Eventos.connect("disparo", self, "onDisparo")
-	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 
 func _on_nave_destruida(posicion: Vector2, num_explosiones: int) -> void:
-	var newExplosion:Node2D = explosion.instance()
-	newExplosion.global_position = posicion
-	add_child(newExplosion)
-	yield(get_tree().create_timer(0.6), "timeout")
+	for i in range(num_explosiones):
+		var newExplosion:Node2D = explosion.instance()
+		newExplosion.global_position = posicion
+		add_child(newExplosion)
+		yield(get_tree().create_timer(0.6), "timeout")
 
 func crearContenedores() -> void:
 	contenedorProyectiles = Node.new()
