@@ -57,6 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Space"
+run/main_scene="res://Juego/Niveles/NivelTest.tscn"
 config/icon="res://iconGame.png"
 
 [autoload]
