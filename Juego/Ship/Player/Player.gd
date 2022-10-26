@@ -18,6 +18,7 @@ onready var estela:estela = $EstelaInicio/Trail2D
 onready var motorSFX:Motor = $MotorSFX
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var impactoSFX:AudioStreamPlayer2D = $impactoSFX
+onready var escudo:Escudo = $Escudo
 
 ##Atributos
 var empuje:Vector2 = Vector2.ZERO
@@ -49,6 +50,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_released("moverAtras") or event.is_action_released(("moverAdelante")):
 		motorSFX.sonidoOFF()
+	
+	#Control Escudo
+	if event.is_action_pressed("escudo") and not escudo.getEstaActivado():
+		escudo.activar()
+
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
