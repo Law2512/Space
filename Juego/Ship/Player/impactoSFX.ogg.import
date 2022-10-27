@@ -11,5 +11,5 @@ dest_files=[ "res://.import/impactoSFX.ogg-b910fefc509e10d135fe9820cdfd793c.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

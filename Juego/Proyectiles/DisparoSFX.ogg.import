@@ -11,5 +11,5 @@ dest_files=[ "res://.import/DisparoSFX.ogg-97fd6e130c97884cf5954ad856a92b17.oggs
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
