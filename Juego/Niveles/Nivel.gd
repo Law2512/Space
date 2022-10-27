@@ -4,18 +4,21 @@ extends Node2D
 
 ##Atributos Export
 export var explosion:PackedScene = null
+export var meteorito:PackedScene = null
 
 ##Atributos Onready
 onready var contenedorProyectiles:Node
+onready var contenedorMeteoritos:Node
 
 ##Metodos
 func _ready() -> void:
 	Eventos.connect("disparo", self, "onDisparo")
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
+	Eventos.connect("spawnMeteorito", self, "_on_spawn_meteoritos")
 	crearContenedores()
 
 ##Metodos Custom
-func _conectarSeniales() -> void:
+func conectarSeniales() -> void:
 	Eventos.connect("disparo", self, "onDisparo")
 
 func _on_nave_destruida(posicion: Vector2, num_explosiones: int) -> void:
@@ -29,10 +32,19 @@ func crearContenedores() -> void:
 	contenedorProyectiles = Node.new()
 	contenedorProyectiles.name = "ContenedorProyectiles"
 	add_child(contenedorProyectiles)
+	contenedorMeteoritos = Node.new()
+	contenedorMeteoritos.name = "ContenedorMeteoritos"
+	add_child(contenedorMeteoritos)
 
 func onDisparo(proyectil:Proyectil) -> void:
 	contenedorProyectiles.add_child(proyectil)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+##Conexion señales externas
+func _on_spawn_meteoritos(posSpawn: Vector2, dirMeteorito: Vector2, tamanio: float) -> void:
+	var newMeteorito:Meteorito = meteorito.instance()
+	newMeteorito.crear(
+		posSpawn,
+		dirMeteorito,
+		tamanio
+	)
+	contenedorMeteoritos.add_child(newMeteorito)

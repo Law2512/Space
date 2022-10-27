@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Ship/Player/Escudo/Escudo.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Meteorito",
+"language": "GDScript",
+"path": "res://Juego/Meteoritos/Meteorito.gd"
+}, {
+"base": "Position2D",
+"class": "MeteoritoSpawner",
+"language": "GDScript",
+"path": "res://MeteoritoSpawner.gd"
+}, {
 "base": "AudioStreamPlayer2D",
 "class": "Motor",
 "language": "GDScript",
@@ -52,6 +62,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Canion": "",
 "Escudo": "",
+"Meteorito": "",
+"MeteoritoSpawner": "",
 "Motor": "",
 "Nivel": "",
 "Player": "",
