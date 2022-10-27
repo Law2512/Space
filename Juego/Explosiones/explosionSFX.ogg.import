@@ -11,5 +11,5 @@ dest_files=[ "res://.import/explosionSFX.ogg-62d03c1e9206f887625bf4f89d6d6104.og
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

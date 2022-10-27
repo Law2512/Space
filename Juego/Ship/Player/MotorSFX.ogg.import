@@ -11,5 +11,5 @@ dest_files=[ "res://.import/MotorSFX.ogg-540ef3c985e6f2f5c4844858e9012f7b.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
