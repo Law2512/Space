@@ -14,6 +14,22 @@ var hitpoints:float
 func _ready() -> void:
 	angular_velocity = velAngBase
 
+##Metodos Custom
+func recibirDanio(danio: float) -> void:
+	hitpoints -= danio
+	$AnimationPlayer.play("Daño")
+	if hitpoints <= 0:
+		destruir()
+
+func destruir() -> void:
+	$CollisionShape2D.set_deferred("disabled", true)
+	Eventos.emit_signal("meteoritoDestruido", global_position)
+	queue_free()
+
+func aleatorizarVelocidad() -> float:
+	randomize()
+	return rand_range(1.1, 1.4)
+
 ##Constructor
 func crear(pos: Vector2, dir: Vector2, tamanio: float) -> void:
 	position = pos
@@ -26,9 +42,10 @@ func crear(pos: Vector2, dir: Vector2, tamanio: float) -> void:
 	formaColision.radius = radio
 	$CollisionShape2D.shape = formaColision
 	#Calcular velocidades
-	linear_velocity = velLinealBase * dir
-	angular_velocity = velAngBase / tamanio
+	linear_velocity = (velLinealBase * dir / tamanio) * aleatorizarVelocidad()
+	angular_velocity = (velAngBase / tamanio) * aleatorizarVelocidad()
 	#Calcular hitpoints
 	hitpoints = hitpointsBase * tamanio
 	#Solo Debug
 	print("hitpoints: ", hitpoints)
+

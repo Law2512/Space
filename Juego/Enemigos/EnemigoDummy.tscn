@@ -10,6 +10,8 @@
 extents = Vector2( 61.121, 59.076 )
 
 [node name="EnemigoDummy" type="Node2D"]
+z_index = 30
+z_as_relative = false
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
