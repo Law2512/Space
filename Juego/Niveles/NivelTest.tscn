@@ -6,26 +6,20 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Juego/Enemigos/EnemigoDummy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Meteoritos/Explosion/ExplosionMeteorito.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Juego/Niveles/Fondos/FondoMorado.png" type="Texture" id=9]
+[ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=10]
 
 [node name="NivelTest" type="Node2D"]
+position = Vector2( 1069.08, 669.956 )
 script = ExtResource( 3 )
 explosion = ExtResource( 5 )
 meteorito = ExtResource( 2 )
 explosionMeteorito = ExtResource( 8 )
-
-[node name="Fondo" type="Node" parent="."]
-
-[node name="FondoMorado" type="Sprite" parent="Fondo"]
-position = Vector2( 996.849, 666.16 )
-scale = Vector2( 8.01445, 5.15294 )
-z_as_relative = false
-texture = ExtResource( 9 )
+sector_Meteoritos = ExtResource( 10 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 494.441, 289.173 )
+position = Vector2( -84.7494, -78.9945 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -33,15 +27,18 @@ environment = ExtResource( 4 )
 [node name="EnemigoDummy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 22.2416, 107.227 )
 
+[node name="EnemigoDummy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 22.2416, 107.227 )
+
 [node name="Meteorito" parent="." instance=ExtResource( 2 )]
 position = Vector2( 260.215, -86.2671 )
 
-[node name="MeteoritoSpawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( 710.259, 49.8744 )
+[node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
-[node name="MeteoritoSpawner3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 38.1836, -100.409 )
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 9 )]
+position = Vector2( 1053.36, 464.386 )
+numeroPeligros = 24
 
-[node name="MeteoritoSpawner2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 717.847, 532.589 )
-direccion = Vector2( -1, -1 )
+[node name="CameraNivel" type="Camera2D" parent="."]
+
+[node name="TweenCamara" type="Tween" parent="."]

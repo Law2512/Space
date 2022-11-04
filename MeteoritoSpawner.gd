@@ -7,8 +7,7 @@ export var direccion: Vector2 = Vector2(1, 1)
 export var rangoTamanioMeteorito:Vector2 = Vector2(0.5, 2.2)
 
 func _ready() -> void:
-	yield(owner, "ready")
-	spawnearMeteorito()
+	pass
 
 func spawnearMeteorito() -> void:
 	Eventos.emit_signal(
