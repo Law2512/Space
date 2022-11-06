@@ -12,6 +12,7 @@ var hitpoints:float
 var estaEnSector:bool = true setget setEstaEnSector
 var posSpawnOriginal:Vector2
 var velSpawnOriginal:Vector2
+var estaDestruido:bool = false
 
 ##Setters y Getters
 func setEstaEnSector(valor: bool) -> void:
@@ -29,14 +30,16 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	miTransform.origin = posSpawnOriginal
 	linear_velocity = velSpawnOriginal
 	state.set_transform(miTransform)
-	estaEnSector = true
+	estaEnSector = true	
 
 ##Metodos Custom
 func recibirDanio(danio: float) -> void:
 	hitpoints -= danio
-	$AnimationPlayer.play("Daño")
-	if hitpoints <= 0:
+	if hitpoints <= 0 and not estaDestruido:
+		estaDestruido = true
 		destruir()
+	
+	$AnimationPlayer.play("Daño")
 
 func destruir() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)

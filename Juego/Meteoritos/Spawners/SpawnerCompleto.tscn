@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Juego/Meteoritos/MeteoritoSpawner.tscn" type="PackedScene" id=2]
+
+[node name="Spawners" type="Node2D"]
+
+[node name="MeteoritoSpawner15" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1150, 360 )
+direccion = Vector2( 1, 0 )
+
+[node name="MeteoritoSpawner16" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1150, -360 )
+direccion = Vector2( 1, 0 )
+
+[node name="MeteoritoSpawner19" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1150, 0 )
+direccion = Vector2( 1, 0 )
