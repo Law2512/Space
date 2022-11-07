@@ -32,6 +32,13 @@ func conectarSeniales() -> void:
 	Eventos.connect("meteoritoDestruido", self, "_on_meteorito_destruido")
 	Eventos.connect("naveSectorPeligro", self, "_on_naveSectorPeligro")
 
+func crearPosicionAleatoria(rangoHorizontal: float, rangoVertical: float) -> Vector2:
+	randomize()
+	var randX = rand_range(-rangoHorizontal, rangoHorizontal)
+	var randY = rand_range(-rangoVertical, rangoVertical)
+	
+	return Vector2 (randX, randY)
+
 func _on_naveSectorPeligro(centroCam:Vector2, tipoPeligro:String, numeroPeligros:int) -> void:
 	if tipoPeligro == "Meteorito":
 		crearSectorMeteoritos(centroCam, numeroPeligros)
@@ -82,10 +89,17 @@ func transicionCamaras(desde: Vector2, hasta: Vector2, camaraActual: Camera2D, t
 	camaraActual.current = true
 	$TweenCamara.start()
 
-func _on_nave_destruida(posicion: Vector2, num_explosiones: int) -> void:
+func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -> void:
+	if nave is Player:
+		transicionCamaras(
+			posicion,
+			posicion + crearPosicionAleatoria(-200.0, 200.0),
+			camaraNivel,
+			tiempoTransicionCamara
+		)
 	for i in range(num_explosiones):
 		var newExplosion:Node2D = explosion.instance()
-		newExplosion.global_position = posicion
+		newExplosion.global_position = posicion + crearPosicionAleatoria(100.0, 50.0)
 		add_child(newExplosion)
 		yield(get_tree().create_timer(0.6), "timeout")
 

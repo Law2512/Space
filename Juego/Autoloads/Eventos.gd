@@ -1,7 +1,7 @@
 #Eventos.gd
 extends Node
 
-signal nave_destruida(posicion, explosiones)
+signal nave_destruida(nave, posicion, explosiones)
 signal naveSectorPeligro(centroCamara, tipoPeligro, numeroPeligros)
 signal disparo(proyectil)
 signal spawnMeteorito(posicion, direccion, tamanio)
