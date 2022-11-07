@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Juego/Ship/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Juego/Niveles/CamaraJuego.gd" type="Script" id=11]
+[ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=12]
 
 [node name="NivelTest" type="Node2D"]
 position = Vector2( 1069.08, 669.956 )
@@ -44,5 +45,8 @@ script = ExtResource( 11 )
 
 [node name="MeteoritoSpawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( -872.985, -202.896 )
+
+[node name="EstacionRecarga" parent="." instance=ExtResource( 12 )]
+position = Vector2( 453.06, -81.1732 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
