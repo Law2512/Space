@@ -27,7 +27,12 @@ _global_script_classes=[ {
 "base": "NaveBase",
 "class": "EnemigoBase",
 "language": "GDScript",
-"path": "res://Juego/Ship/Enemigos/EnemigoInterceptor/EnemigoBase.gd"
+"path": "res://Juego/Ship/Enemigos/EnemigoBase.gd"
+}, {
+"base": "EnemigoBase",
+"class": "EnemigoInterceptor",
+"language": "GDScript",
+"path": "res://Juego/Ship/Enemigos/EnemigoInterceptor/EnemigoInterceptor.gd"
 }, {
 "base": "Area2D",
 "class": "Escudo",
@@ -99,6 +104,7 @@ _global_script_class_icons={
 "CamaraPlayer": "",
 "Canion": "",
 "EnemigoBase": "",
+"EnemigoInterceptor": "",
 "Escudo": "",
 "EstacionRecarga": "",
 "ExplosionMeteorito": "",
@@ -123,6 +129,7 @@ config/icon="res://iconGame.png"
 [autoload]
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
+DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
 
 [debug]
 

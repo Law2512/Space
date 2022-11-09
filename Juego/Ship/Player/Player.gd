@@ -25,6 +25,9 @@ func getEscudo() -> Escudo:
 	return escudo
 
 ##Metodos
+func ready() -> void:
+	DatosJuego.setPlayerActual(self)
+
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
 	apply_torque_impulse(dirRotacion * potenciaRotacion)
