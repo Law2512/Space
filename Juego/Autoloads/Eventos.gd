@@ -1,6 +1,7 @@
 #Eventos.gd
 extends Node
 
+signal baseDestruida(posiciones)
 signal nave_destruida(nave, posicion, explosiones)
 signal naveSectorPeligro(centroCamara, tipoPeligro, numeroPeligros)
 signal disparo(proyectil)

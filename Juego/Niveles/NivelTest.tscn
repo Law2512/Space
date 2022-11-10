@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Ship/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://Juego/Explosiones/Explosion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Juego/Ship/Enemigos/EnemigoInterceptor/EnemigoInterceptor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Juego/Estacion/EstacionEnemiga/BaseEnemiga.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Juego/Meteoritos/Explosion/ExplosionMeteorito.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Juego/Meteoritos/SectorMeteoritos.tscn" type="PackedScene" id=10]
@@ -27,13 +28,13 @@ enemigoInterceptor = ExtResource( 6 )
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 9 )]
-position = Vector2( 1027.32, -58.8651 )
+position = Vector2( 1722.8, -446.921 )
 numeroPeligros = 3
 
 [node name="TriggersInterceptores" type="Node" parent="."]
 
 [node name="SectorDePeligro2" parent="TriggersInterceptores" instance=ExtResource( 9 )]
-position = Vector2( 0.38562, -349.578 )
+position = Vector2( -813.234, -408.098 )
 tipoPeligro = "Enemigo"
 numeroPeligros = 3
 
@@ -140,5 +141,8 @@ texture = ExtResource( 13 )
 position = Vector2( 3165.67, 316.329 )
 scale = Vector2( 3.73146, 3.47132 )
 texture = ExtResource( 13 )
+
+[node name="BaseEnemiga" parent="." instance=ExtResource( 7 )]
+position = Vector2( 454.734, -370.195 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
