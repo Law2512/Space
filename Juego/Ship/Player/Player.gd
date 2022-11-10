@@ -25,7 +25,7 @@ func getEscudo() -> Escudo:
 	return escudo
 
 ##Metodos
-func ready() -> void:
+func _ready() -> void:
 	DatosJuego.setPlayerActual(self)
 
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
