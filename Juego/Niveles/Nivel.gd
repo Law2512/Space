@@ -36,6 +36,7 @@ func conectarSeniales() -> void:
 	Eventos.connect("meteoritoDestruido", self, "_on_meteorito_destruido")
 	Eventos.connect("naveSectorPeligro", self, "_on_naveSectorPeligro")
 	Eventos.connect("baseDestruida", self, "_on_baseDestruida")
+	Eventos.connect("spawnOrbital", self, "_on_spawnOrbital")
 
 func crearPosicionAleatoria(rangoHorizontal: float, rangoVertical: float) -> Vector2:
 	randomize()
@@ -165,6 +166,9 @@ func _on_naveSectorPeligro(centroCam:Vector2, tipoPeligro:String, numeroPeligros
 		crearSectorMeteoritos(centroCam, numeroPeligros)
 	elif tipoPeligro == "Enemigo":
 		crearSectorEnemigos(numeroPeligros)
+
+func _on_spawnOrbital(enemigo: EnemigoOrbital) -> void:
+	contenedorEnemigos.add_child(enemigo)
 
 ##Señales Internas
 func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:

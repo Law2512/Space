@@ -44,6 +44,7 @@ numeroPeligros = 3
 position = Vector2( 1522.14, 588.783 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -902.875, -659.072 )
 
 [node name="CameraNivel" type="Camera2D" parent="."]
 script = ExtResource( 11 )
@@ -143,6 +144,15 @@ scale = Vector2( 3.73146, 3.47132 )
 texture = ExtResource( 13 )
 
 [node name="BaseEnemiga" parent="." instance=ExtResource( 7 )]
-position = Vector2( 454.734, -370.195 )
+position = Vector2( 485.006, -629.191 )
+
+[node name="BaseEnemiga4" parent="." instance=ExtResource( 7 )]
+position = Vector2( -749.43, -1584.45 )
+
+[node name="BaseEnemiga2" parent="." instance=ExtResource( 7 )]
+position = Vector2( -821.758, 503.211 )
+
+[node name="BaseEnemiga3" parent="." instance=ExtResource( 7 )]
+position = Vector2( -2065.45, -615.758 )
 
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]

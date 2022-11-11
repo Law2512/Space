@@ -54,3 +54,4 @@ func _on_AreaRecarga_body_entered(body: Node) -> void:
 
 func _on_AreaRecarga_body_exited(body: Node) -> void:
 	playerEnZona = false
+	body.set_gravity_scale(0.0)
