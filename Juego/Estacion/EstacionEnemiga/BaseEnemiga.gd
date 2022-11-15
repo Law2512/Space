@@ -5,15 +5,20 @@ extends Node2D
 ##Atributos Export
 export var hitpoints:float = 30.0
 export var enemigoOrbital:PackedScene = null
+export var numOrbitales:int = 10
+export var intervaloSpawn:float = 0.8
 
 ##Atributos Onready
 onready var impactoSFX:AudioStreamPlayer2D = $ImpactoSFX
+onready var timerSpawner:Timer = $TimerSpawnerEnemigo 
 
 ##Atributos
 var estaDestruida:bool = false
+var posicionSpawn:Vector2 = Vector2.ZERO
 
 ##Metodos
 func _ready() -> void:
+	timerSpawner.wait_time = intervaloSpawn
 	$AnimationPlayer.play(elegirAnimacionAleatoria())
 
 ##Metodos Custom
@@ -27,12 +32,15 @@ func recibirDanio(danio:float) -> void:
 	impactoSFX.play()
 
 func spawnearOrbital() -> void:
+	numOrbitales -= 1
+	$RutaEnemiga.global_position = global_position
 	var posSpawn:Vector2 = deteccionCuadrante()
 	
 	var newOrbital:EnemigoOrbital = enemigoOrbital.instance()
 	newOrbital.crear(
 		global_position + posSpawn,
-		self
+		self,
+		$RutaEnemiga
 	)
 	
 	Eventos.emit_signal("spawnOrbital", newOrbital)
@@ -56,9 +64,11 @@ func deteccionCuadrante() -> Vector2:
 		#Player entra por arriba o por abajo
 		if sign(anguloPlayer) > 0:
 			#Player entra por abajo
+			$RutaEnemiga.rotation_degrees = 270.0
 			return $PosicionesSpawn/PositionSur.position
 		else:
 			#Player entra por arriba
+			$RutaEnemiga.rotation_degrees = 90.0
 			return $PosicionesSpawn/PositionNorte.position
 	
 	return $PosicionesSpawn/Norte.position
@@ -89,5 +99,12 @@ func _on_AreaColision_body_entered(body: Node) -> void:
 
 func _on_VisibilityNotifier2D_screen_entered() -> void:
 	$VisibilityNotifier2D.queue_free()
+	posicionSpawn = deteccionCuadrante()
 	spawnearOrbital()
+	timerSpawner.start()
 
+func _on_TimerSpawnerEnemigo_timeout() -> void:
+	if numOrbitales == 0:
+		timerSpawner.stop()
+		return
+	spawnearOrbital()

@@ -58,6 +58,15 @@ position = Vector2( 23.6448, 4.28593 )
 autoplay = "spawn"
 anims/spawn = SubResource( 2 )
 
+[node name="DetectorBase" type="RayCast2D" parent="." index="5"]
+position = Vector2( 38.5814, 0.749161 )
+rotation = -1.5708
+scale = Vector2( 3.89353, 14.6018 )
+enabled = true
+collision_mask = 32
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." index="6"]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Canion"]
