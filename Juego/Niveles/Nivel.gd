@@ -8,7 +8,8 @@ export var meteorito:PackedScene = null
 export var explosionMeteorito:PackedScene = null
 export var sector_Meteoritos:PackedScene = null
 export var enemigoInterceptor:PackedScene = null
-export var tiempoTransicionCamara:int = 1
+export var releMasa:PackedScene = null
+export var tiempoTransicionCamara:float = 2.0
 
 ##Atributos Onready
 onready var contenedorProyectiles:Node
@@ -21,11 +22,13 @@ onready var camaraPlayer:Camera2D = $Player/CameraPlayer
 ##Atributos
 var meteoritosTotales:int = 0
 var player:Player = null
+var numeroBasesEnemigas = 0
 
 ##Metodos
 func _ready() -> void:
 	conectarSeniales()
 	crearContenedores()
+	numeroBasesEnemigas = contabilizarBasesEnemigas()
 	player = DatosJuego.getPlayerActual()
 
 ##Metodos Custom
@@ -83,6 +86,14 @@ func controlarMeteoritosRestantes() -> void:
 			tiempoTransicionCamara * 0.10
 		)
 
+func contabilizarBasesEnemigas() -> int:
+	return $BasesEnemigas.get_child_count()
+
+func crearRele() -> void:
+	var newReleMasa:ReleMasa = releMasa.instance()
+	newReleMasa.global_position = player.global_position + crearPosicionAleatoria(1000.0, 800.0)
+	add_child(newReleMasa)
+
 func transicionCamaras(desde: Vector2, hasta: Vector2, camaraActual: Camera2D, tiempoTransicion) -> void:
 	$TweenCamara.interpolate_property(
 		camaraActual,
@@ -127,7 +138,7 @@ func crearExplosion(
 					)
 				add_child(newExplosion)
 				yield(get_tree().create_timer(0.6), "timeout")
-
+				newExplosion.queue_free()
 
 ##Conexion señales externas
 func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -> void:
@@ -144,6 +155,10 @@ func _on_baseDestruida(posPartes: Array) -> void:
 	for posicion in posPartes:
 		crearExplosion(posicion)
 		yield(get_tree().create_timer(0.5), "timeout")
+	
+	numeroBasesEnemigas -= 1
+	if numeroBasesEnemigas == 0:
+		crearRele()
 
 func _on_meteorito_destruido(pos: Vector2) -> void:
 	var newExplosionMet:ExplosionMeteorito = explosionMeteorito.instance()

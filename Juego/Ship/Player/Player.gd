@@ -91,3 +91,9 @@ func playerInput() -> void:
 	
 	if Input.is_action_just_released("disparoPrincipal"):
 		canion.setEstaDisparando(false)
+
+func desactivarControl() -> void:
+	controlarEstados(ESTADO.SPAWN)
+	empuje = Vector2.ZERO
+	motorSFX.sonidoOFF()
+	laser.set_is_casting(false)
