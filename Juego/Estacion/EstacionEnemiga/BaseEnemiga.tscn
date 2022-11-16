@@ -112,6 +112,7 @@ script = ExtResource( 6 )
 enemigoOrbital = ExtResource( 8 )
 
 [node name="Sprites" type="Node2D" parent="."]
+rotation = -3.68785
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Sprite" type="Sprite" parent="Sprites"]
@@ -131,6 +132,7 @@ position = Vector2( 0, -216 )
 texture = ExtResource( 2 )
 
 [node name="AreaColision" type="Area2D" parent="."]
+rotation = -3.68785
 collision_layer = 32
 collision_mask = 9
 script = ExtResource( 7 )

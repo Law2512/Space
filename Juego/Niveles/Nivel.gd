@@ -26,6 +26,7 @@ var numeroBasesEnemigas = 0
 
 ##Metodos
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	conectarSeniales()
 	crearContenedores()
 	numeroBasesEnemigas = contabilizarBasesEnemigas()
@@ -91,7 +92,14 @@ func contabilizarBasesEnemigas() -> int:
 
 func crearRele() -> void:
 	var newReleMasa:ReleMasa = releMasa.instance()
-	newReleMasa.global_position = player.global_position + crearPosicionAleatoria(1000.0, 800.0)
+	var posAleatoria:Vector2 = crearPosicionAleatoria(400.0, 200.0)
+	var margen:Vector2 = Vector2(600.0, 600.0)
+	if posAleatoria.x < 0:
+		margen.x *= -1
+	if posAleatoria.y < 0:
+		margen.y *= -1
+	
+	newReleMasa.global_position = player.global_position + (margen + posAleatoria)
 	add_child(newReleMasa)
 
 func transicionCamaras(desde: Vector2, hasta: Vector2, camaraActual: Camera2D, tiempoTransicion) -> void:
@@ -151,7 +159,7 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 		)
 	crearExplosion(posicion, num_explosiones, 0.6, Vector2(100.0, 50.0))
 
-func _on_baseDestruida(posPartes: Array) -> void:
+func _on_baseDestruida(_base: Node2D, posPartes: Array) -> void:
 	for posicion in posPartes:
 		crearExplosion(posicion)
 		yield(get_tree().create_timer(0.5), "timeout")

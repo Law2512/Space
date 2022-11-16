@@ -5,6 +5,7 @@ extends NaveBase
 ##Atributos
 var playerObjetivo:Player = null
 var dirPlayer:Vector2
+var frameActual:int = 0
 
 ##Metodos
 func _ready() -> void:
@@ -12,7 +13,9 @@ func _ready() -> void:
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 
 func _physics_process(delta: float) -> void:
-	rotarHaciaPlayer()
+	frameActual += 1
+	if frameActual % 3 == 0:
+		rotarHaciaPlayer()
 
 ##Metodos Custom
 func _on_nave_destruida(nave: NaveBase, _posicion, _num_explosiones) -> void:

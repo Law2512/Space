@@ -15,7 +15,6 @@ onready var disparoSFX:AudioStreamPlayer2D = $DisparosSFX
 onready var estaEnfriado:bool = true
 onready var estaDisparando:bool = false setget setEstaDisparando
 onready var puedeDisparar:bool = false setget setPuedeDisparar
-onready var colisionador:CollisionShape2D = $CollisionShape2D
 
 ##Atributos
 var puntosDisparo:Array = []
@@ -33,7 +32,7 @@ func _ready() -> void:
 	timerEnfriamiento.wait_time = cadenciaDisparo
 
 func _process(delta: float) -> void:
-	if estaDisparando and estaEnfriado:
+	if estaDisparando and estaEnfriado and puedeDisparar:
 		disparar()
 
 ##Metodos Custom

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rele2SFX.ogg-1f684401aad5d1b96a1b51401c991297.oggstr"
+
+[deps]
+
+source_file="res://Juego/Estacion/Rele/Rele2SFX.ogg"
+dest_files=[ "res://.import/Rele2SFX.ogg-1f684401aad5d1b96a1b51401c991297.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
