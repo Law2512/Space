@@ -26,12 +26,15 @@ func _process(delta: float) -> void:
 ##Metodos Custom
 func controlarEnergia(consumo: float) -> void:
 	energia += consumo
-	print("Energia escudo: ", energia)
 	
 	if energia > energiaOriginal:
 		energia = energiaOriginal
 	elif energia <= 0.0:
+		Eventos.emit_signal("ocultarEnergiaEscudo")
 		desactivar()
+		return
+	
+	Eventos.emit_signal("cambioEnergiaEscudo", energiaOriginal, energia)
 
 func activar() -> void:
 	if energia <= 0.0:

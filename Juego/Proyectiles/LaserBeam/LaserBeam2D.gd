@@ -48,6 +48,7 @@ func set_is_casting(cast: bool) -> void:
 		fill.points[1] = cast_to
 		appear()
 	else:
+		Eventos.emit_signal("ocultarEnergiaLaser")
 		laserSFX.stop() #Si se suelta se detiene el sonido
 		collision_particles.emitting = false
 		disappear()
@@ -89,7 +90,8 @@ func controlarEnergia(consumo: float) -> void:
 	energia += consumo
 	if energia > energiaOriginal:
 		energia = energiaOriginal
-	print("Energia laser: ", energia)
+	
+	Eventos.emit_signal("cambioEnergiaLaser", energiaOriginal, energia)
 
 func appear() -> void:
 	if tween.is_active():

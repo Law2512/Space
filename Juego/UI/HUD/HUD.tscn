@@ -1,0 +1,188 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Juego/Ship/Player/player_orange.png" type="Texture" id=1]
+[ext_resource path="res://Juego/UI/HUD/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/UI/HUD/ContenedorInformacionEnergia.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.447059, 0.968627, 0.968627, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.0509804, 0.501961, 0.694118, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.952941, 0.92549, 0.180392, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.403922, 0.439216, 0.0941176, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="FadeCanvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeCanvas"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="FadeCanvas/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -116.0
+margin_right = 153.0
+margin_bottom = 116.0
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeCanvas"]
+anims/default = SubResource( 1 )
+anims/fadeIN = SubResource( 2 )
+
+[node name="InfoZonaRecarga" parent="." groups=[
+"contenedorInfo",
+] instance=ExtResource( 3 )]
+
+[node name="Label" parent="InfoZonaRecarga" index="0"]
+text = "    En zona 
+   Recarga"
+
+[node name="InfoMeteoritos" parent="." groups=[
+"contenedorInfo",
+] instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_top = -116.0
+margin_right = 245.0
+margin_bottom = 0.0
+autoOcultar = true
+
+[node name="Label" parent="InfoMeteoritos" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_left = -100.5
+margin_top = 0.0
+margin_right = 107.5
+margin_bottom = 79.0
+text = "Meteoritos 
+restantes
+5"
+
+[node name="InfoTiempoRestante" parent="." groups=[
+"contenedorInfo",
+] instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -245.0
+margin_right = 0.0
+
+[node name="Label" parent="InfoTiempoRestante" index="0"]
+anchor_top = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_bottom = 93.0
+text = "Tiempo
+Restante
+mm:ss
+"
+
+[node name="InfoLaser" parent="." groups=[
+"contenedorInfo",
+] instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -327.0
+margin_top = -116.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="Label" parent="InfoLaser" index="0"]
+margin_left = -128.932
+margin_top = 6.27283
+margin_right = 131.068
+margin_bottom = 67.2728
+text = "Energia Laser"
+
+[node name="ProgressBar" parent="InfoLaser" index="3"]
+margin_left = -133.391
+margin_top = -60.8909
+margin_right = 134.609
+margin_bottom = -22.8909
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+
+[node name="InfoEscudo" parent="." groups=[
+"contenedorInfo",
+] instance=ExtResource( 4 )]
+margin_left = 1591.49
+margin_top = 846.158
+margin_right = 1918.49
+margin_bottom = 962.158
+region_rect = Rect2( 0, 0, 103, 98 )
+
+[node name="Label" parent="InfoEscudo" index="0"]
+margin_left = -155.682
+margin_top = 4.5274
+margin_right = 166.318
+margin_bottom = 65.5274
+text = "Energia Escudo"
+
+[node name="ProgressBar" parent="InfoEscudo" index="3"]
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+
+[editable path="InfoZonaRecarga"]
+[editable path="InfoMeteoritos"]
+[editable path="InfoTiempoRestante"]
+[editable path="InfoLaser"]
+[editable path="InfoEscudo"]

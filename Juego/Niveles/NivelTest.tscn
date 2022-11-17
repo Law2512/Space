@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Juego/Ship/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Meteoritos/Meteorito.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Juego/Niveles/Fondos/FondoMorado.png" type="Texture" id=13]
 [ext_resource path="res://Juego/Estacion/Rele/ReleMasa.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Juego/UI/HUD/HUD.tscn" type="PackedScene" id=15]
 
 [node name="NivelTest" type="Node2D"]
 script = ExtResource( 3 )
@@ -26,11 +27,12 @@ explosionMeteorito = ExtResource( 8 )
 sector_Meteoritos = ExtResource( 10 )
 enemigoInterceptor = ExtResource( 6 )
 releMasa = ExtResource( 14 )
+tiempoLimite = 60
 
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" instance=ExtResource( 9 )]
-position = Vector2( 1722.8, -446.921 )
+position = Vector2( -850.111, -960.078 )
 numeroPeligros = 3
 
 [node name="TriggersInterceptores" type="Node" parent="."]
@@ -51,7 +53,7 @@ position = Vector2( 157.552, -902.941 )
 position = Vector2( -821.758, 503.211 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -902.875, -659.072 )
+position = Vector2( -899.671, -659.072 )
 
 [node name="CameraNivel" type="Camera2D" parent="."]
 script = ExtResource( 11 )
@@ -150,4 +152,12 @@ position = Vector2( 3165.67, 316.329 )
 scale = Vector2( 3.73146, 3.47132 )
 texture = ExtResource( 13 )
 
+[node name="HUD" parent="." instance=ExtResource( 15 )]
+
+[node name="RestartTimer" type="Timer" parent="."]
+
+[node name="ActualizarTimer" type="Timer" parent="."]
+
 [connection signal="tween_completed" from="TweenCamara" to="." method="_on_TweenCamara_tween_completed"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_RestartTimer_timeout"]
+[connection signal="timeout" from="ActualizarTimer" to="." method="_on_ActualizarTimer_timeout"]
