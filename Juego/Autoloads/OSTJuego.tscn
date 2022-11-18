@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Juego/Niveles/OST/Nivel.wav" type="AudioStream" id=1]
+[ext_resource path="res://Juego/Niveles/OST/Peligro.wav" type="AudioStream" id=2]
+[ext_resource path="res://Juego/Autoloads/OSTJuego.gd" type="Script" id=3]
+[ext_resource path="res://Juego/Niveles/OST/Menu.wav" type="AudioStream" id=4]
+[ext_resource path="res://Juego/UI/botonSFX.ogg" type="AudioStream" id=5]
+
+[node name="OSTJuego" type="Node"]
+script = ExtResource( 3 )
+
+[node name="MusicaNivel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "OST"
+
+[node name="MusicaCombate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "OST"
+
+[node name="MusicaMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "OST"
+
+[node name="MusicaBoton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Botones"
+
+[node name="TweenMusicaON" type="Tween" parent="."]
+
+[node name="TweenMusicaOFF" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="TweenMusicaOFF" to="." method="_on_TweenMusicaOFF_tween_completed"]

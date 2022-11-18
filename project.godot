@@ -166,6 +166,7 @@ config/icon="res://iconGame.png"
 
 Eventos="*res://Juego/Autoloads/Eventos.gd"
 DatosJuego="*res://Juego/Autoloads/DatosJuego.gd"
+OstJuego="*res://Juego/Autoloads/OSTJuego.tscn"
 
 [debug]
 

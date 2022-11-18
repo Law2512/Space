@@ -9,6 +9,8 @@ export var explosionMeteorito:PackedScene = null
 export var sector_Meteoritos:PackedScene = null
 export var enemigoInterceptor:PackedScene = null
 export var releMasa:PackedScene = null
+export var musicaNivel:AudioStream = null
+export var musicaCombate:AudioStream = null
 export var tiempoTransicionCamara:float = 2.0
 export var tiempoLimite:int = 10
 
@@ -32,6 +34,8 @@ func _ready() -> void:
 	Eventos.emit_signal("actualizarTiempo", tiempoLimite)
 	actualizadorTimer.start()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	OstJuego.setStreams(musicaNivel, musicaCombate)
+	OstJuego.playMusicaNivel()
 	conectarSeniales()
 	crearContenedores()
 	numeroBasesEnemigas = contabilizarBasesEnemigas()
@@ -66,6 +70,7 @@ func crearPosicionAleatoria(rangoHorizontal: float, rangoVertical: float) -> Vec
 	return Vector2 (randX, randY)
 
 func crearSectorMeteoritos(centroCamara:Vector2, numPeligro:int) -> void:
+	OstJuego.transicionMusicas()
 	meteoritosTotales = numPeligro
 	var newSectorMeteoritos:SectorMeteoritos = sector_Meteoritos.instance()
 	newSectorMeteoritos.crear(centroCamara, numPeligro)
@@ -90,7 +95,9 @@ func crearSectorEnemigos(numEnemigos: int) -> void:
 func controlarMeteoritosRestantes() -> void:
 	meteoritosTotales -= 1
 	Eventos.emit_signal("cambioNumeroMeteoritos", meteoritosTotales)
+	
 	if meteoritosTotales == 0:
+		OstJuego.transicionMusicas()
 		contenedorSectorMeteoritos.get_child(0).queue_free()
 		camaraPlayer.setPuedeHacerZoom(true)
 		var zoomActual = camaraPlayer.zoom
