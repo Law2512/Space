@@ -13,6 +13,9 @@ var estadoIAActual:int = ESTADO_IA.IDLE
 var potenciaActual:float = 0.0
 
 ##Metodos
+func _ready() -> void:
+	Eventos.emit_signal("minimapaObjetoCreado")
+
 func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	linear_velocity += dirPlayer.normalized() * potenciaActual * state.get_step()
 	

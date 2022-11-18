@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Ship/Player/player_orange.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Ship/NaveBase.tscn" type="PackedScene" id=2]
@@ -13,6 +13,24 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 41.0254
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.427451, 0.992157, 0.109804, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.529412, 0.196078, 0.196078, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
 
 [node name="Player" instance=ExtResource( 2 )]
 z_index = 50
@@ -52,6 +70,10 @@ position = Vector2( 0, 28 )
 
 [node name="LaserBeam2D" parent="." index="9" instance=ExtResource( 5 )]
 position = Vector2( 33.371, 0 )
+
+[node name="BarraSalud" parent="." index="10"]
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

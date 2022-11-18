@@ -21,6 +21,9 @@ func _physics_process(delta: float) -> void:
 func _on_nave_destruida(nave: NaveBase, _posicion, _num_explosiones) -> void:
 	if nave is Player:
 		playerObjetivo = null
+	
+	if nave.is_in_group("minimapa"):
+		Eventos.emit_signal("minimapaObjetoDestruido", nave)
 
 func rotarHaciaPlayer() -> void:
 	if playerObjetivo:

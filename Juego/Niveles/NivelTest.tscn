@@ -27,7 +27,7 @@ explosionMeteorito = ExtResource( 8 )
 sector_Meteoritos = ExtResource( 10 )
 enemigoInterceptor = ExtResource( 6 )
 releMasa = ExtResource( 14 )
-tiempoLimite = 60
+tiempoLimite = 120
 
 [node name="TriggersLluviaMeteoritos" type="Node" parent="."]
 

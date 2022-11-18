@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Juego/Ship/NaveBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Juego/Ship/Enemigos/EnemigoInterceptor/EnemigoInterceptor.gd" type="Script" id=2]
@@ -156,7 +156,27 @@ radius = 839.075
 [sub_resource type="CircleShape2D" id=6]
 radius = 706.892
 
-[node name="EnemigoInterceptor" instance=ExtResource( 1 )]
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.960784, 0.815686, 0.243137, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.647059, 0.2, 0.2, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+
+[node name="EnemigoInterceptor" groups=[
+"minimapa",
+] instance=ExtResource( 1 )]
 z_index = 45
 z_as_relative = false
 collision_layer = 2
@@ -172,6 +192,7 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 shape = SubResource( 2 )
 
 [node name="Canion" parent="." index="2"]
@@ -191,12 +212,14 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 
 [node name="AreaDisparo" type="Area2D" parent="." index="6"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDisparo" index="0"]
 shape = SubResource( 5 )
 
 [node name="AreaDeteccion" type="Area2D" parent="." index="7"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion" index="0"]
@@ -216,6 +239,14 @@ texture = ExtResource( 3 )
 visible = false
 position = Vector2( 65.2548, 127.755 )
 texture = ExtResource( 3 )
+
+[node name="BarraSalud" parent="." index="11"]
+margin_left = -98.7194
+margin_top = 62.7194
+margin_right = 26.2806
+margin_bottom = 89.7194
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="AreaDisparo" to="." method="_on_AreaDisparo_body_entered"]

@@ -11,6 +11,7 @@ export var intervaloSpawn:float = 0.8
 ##Atributos Onready
 onready var impactoSFX:AudioStreamPlayer2D = $ImpactoSFX
 onready var timerSpawner:Timer = $TimerSpawnerEnemigo 
+onready var barraSalud:ProgressBar = $Sprites/BarraSalud
 
 ##Atributos
 var estaDestruida:bool = false
@@ -18,6 +19,7 @@ var posicionSpawn:Vector2 = Vector2.ZERO
 
 ##Metodos
 func _ready() -> void:
+	barraSalud.setValores(hitpoints)
 	timerSpawner.wait_time = intervaloSpawn
 	$AnimationPlayer.play(elegirAnimacionAleatoria())
 
@@ -29,6 +31,7 @@ func recibirDanio(danio:float) -> void:
 		estaDestruida = true
 		destruir()
 	
+	barraSalud.setHitpointsActual(hitpoints)
 	impactoSFX.play()
 
 func spawnearOrbital() -> void:
@@ -90,6 +93,7 @@ func destruir() -> void:
 	]
 	
 	Eventos.emit_signal("baseDestruida", self, posicionPartes)
+	Eventos.emit_signal("minimapaObjetoDestruido", self)
 	queue_free()
 
 ##Señales Internas

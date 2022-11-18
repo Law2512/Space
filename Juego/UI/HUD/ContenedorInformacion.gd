@@ -17,6 +17,9 @@ var estaActivado:bool = true setget setEstaActivo
 func setEstaActivo(valor: bool) -> void:
 	estaActivado = valor
 
+func setAutoOcultar(valor: bool) -> void:
+	autoOcultar = valor
+
 ##Metodos Custom
 func modificarTexto(text: String) -> void:
 	textoContenedor.text = text
