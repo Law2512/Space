@@ -31,7 +31,7 @@ func _ready() -> void:
 	almacenarPuntosDisparo()
 	timerEnfriamiento.wait_time = cadenciaDisparo
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if estaDisparando and estaEnfriado and puedeDisparar:
 		disparar()
 

@@ -8,6 +8,26 @@
 position = Vector2( -1150, 360 )
 direccion = Vector2( 1, 0 )
 
+[node name="MeteoritoSpawner17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1154.49, 720 )
+direccion = Vector2( -1, -1 )
+
+[node name="MeteoritoSpawner18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1150, -720 )
+direccion = Vector2( -1, 1 )
+
+[node name="MeteoritoSpawner20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1150, 0 )
+direccion = Vector2( -1, 0 )
+
+[node name="MeteoritoSpawner21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1150, 360 )
+direccion = Vector2( -1, 0 )
+
+[node name="MeteoritoSpawner22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1150, -360 )
+direccion = Vector2( -1, 0 )
+
 [node name="MeteoritoSpawner16" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1150, -360 )
 direccion = Vector2( 1, 0 )
@@ -15,3 +35,34 @@ direccion = Vector2( 1, 0 )
 [node name="MeteoritoSpawner19" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1150, 0 )
 direccion = Vector2( 1, 0 )
+
+[node name="MeteoritoSpawner23" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1150, -720 )
+
+[node name="MeteoritoSpawner24" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1150, 720 )
+direccion = Vector2( 1, -1 )
+
+[node name="MeteoritoSpawner25" parent="." instance=ExtResource( 2 )]
+position = Vector2( -575, 720 )
+direccion = Vector2( 0, -1 )
+
+[node name="MeteoritoSpawner26" parent="." instance=ExtResource( 2 )]
+position = Vector2( -575, -720 )
+direccion = Vector2( 0, 1 )
+
+[node name="MeteoritoSpawner27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 575, -720 )
+direccion = Vector2( 0, 1 )
+
+[node name="MeteoritoSpawner29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -720 )
+direccion = Vector2( 0, 1 )
+
+[node name="MeteoritoSpawner30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 720 )
+direccion = Vector2( 0, -1 )
+
+[node name="MeteoritoSpawner28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 575, 720 )
+direccion = Vector2( 0, -1 )

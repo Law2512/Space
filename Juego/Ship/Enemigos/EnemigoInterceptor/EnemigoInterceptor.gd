@@ -43,17 +43,17 @@ func controladorEstadosIa(nuevoEstado: int) -> void:
 	estadoIAActual = nuevoEstado
 
 
-func _on_AreaDisparo_body_entered(body: Node) -> void:
+func _on_AreaDisparo_body_entered(_body: Node) -> void:
 	controladorEstadosIa(ESTADO_IA.ATACANDOP)
 
 
-func _on_AreaDisparo_body_exited(body: Node) -> void:
+func _on_AreaDisparo_body_exited(_body: Node) -> void:
 	controladorEstadosIa(ESTADO_IA.PERSECUCION)
 
 
-func _on_AreaDeteccion_body_entered(body: Node) -> void:
+func _on_AreaDeteccion_body_entered(_body: Node) -> void:
 	controladorEstadosIa(ESTADO_IA.ATACANDOQ)
 
 
-func _on_AreaDeteccion_body_exited(body: Node) -> void:
+func _on_AreaDeteccion_body_exited(_body: Node) -> void:
 	controladorEstadosIa(ESTADO_IA.ATACANDOP)

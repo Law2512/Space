@@ -12,7 +12,7 @@ func _ready() -> void:
 	playerObjetivo = DatosJuego.getPlayerActual()
 	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	frameActual += 1
 	if frameActual % 3 == 0:
 		rotarHaciaPlayer()

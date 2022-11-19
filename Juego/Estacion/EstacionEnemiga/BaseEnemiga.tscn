@@ -11,7 +11,7 @@
 [ext_resource path="res://Juego/Estacion/EstacionEnemiga/PosicionesSpawn.gd" type="Script" id=9]
 [ext_resource path="res://Juego/UI/HUD/BarraSalud.tscn" type="PackedScene" id=10]
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0666667, 0.509804, 0.956863, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -20,7 +20,7 @@ border_width_bottom = 2
 border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.419608, 0, 0.721569, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -29,57 +29,57 @@ border_width_bottom = 1
 border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 32.0
 height = 320.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 16.0
 height = 64.0
 
-[sub_resource type="Animation" id=3]
-
-[sub_resource type="Animation" id=4]
-length = 5.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AreaAtraccion/SpriteRecarga:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.262745, 0.647059, 0.929412, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprites:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -360.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AreaColision:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, -360.0 ]
-}
-
 [sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AreaAtraccion/SpriteRecarga:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.262745, 0.647059, 0.929412, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AreaColision:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+
+[sub_resource type="Animation" id=7]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -119,9 +119,9 @@ tracks/2/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=8]
 _data = {
-"points": PoolVector2Array( 58.8627, 16.8179, -58.8627, -16.8179, -416, -272, -48.772, -38.6812, 48.772, 38.6812, -304, -376, 0, 0, 0, 0, -152, -448, 0, 0, 0, 0, -152, -448, 0, 0, 0, 0, -152, -448, -110.998, 0, 110.998, 0, 0, -528, 0, 0, 0, 0, 152, -480, -23.5451, -67.2717, 23.5451, 67.2717, 272, -360, -10.0907, -55.4991, 10.0907, 55.4991, 360, -248, 5.04537, -70.6352, -5.04537, 70.6352, 424, -160, 1.68179, -87.4532, -1.68179, 87.4532, 504, 0, 0, -105.953, 0, 105.953, 440, 144, 47.0902, 30.2722, -47.0902, -30.2722, 376, 264, 0, 0, 0, 0, 296, 368, 40.363, -65.5899, -40.363, 65.5899, 224, 440, 33.6358, -82.4078, -33.6358, 82.4078, 72, 480, 0, 0, 0, 0, -104, 464, 65.5899, 35.3176, -65.5899, -35.3176, -240, 448, 26.9087, 68.9535, -26.9087, -68.9535, -344, 392, 0, 0, 0, 0, -416, 320, 0, 0, 0, 0, -488, 232, 134.543, -84.0896, -134.543, 84.0896, -472, 72, 0, 0, 0, 0, -528, -64, -53.8173, -1.68179, 53.8173, 1.68179, -512, -136, -47.0902, -23.5451, 47.0902, 23.5451, -464, -200, 0, 0, 0, 0, -416, -272 )
+"points": PoolVector2Array( 58.8627, 16.8179, -58.8627, -16.8179, -352, -216, -48.772, -38.6812, 48.772, 38.6812, -264, -312, 0, 0, 0, 0, -152, -448, 0, 0, 0, 0, -152, -448, 0, 0, 0, 0, -152, -448, -110.998, 0, 110.998, 0, -8, -400, 0, 0, 0, 0, 88, -344, -23.5451, -67.2717, 23.5451, 67.2717, 216, -304, -10.0907, -55.4991, 10.0907, 55.4991, 272, -224, 5.04537, -70.6352, -5.04537, 70.6352, 328, -136, 1.68179, -87.4532, -1.68179, 87.4532, 424, -16, 0, -105.953, 0, 105.953, 376, 88, 47.0902, 30.2722, -47.0902, -30.2722, 336, 176, 0, 0, 0, 0, 264, 232, 40.363, -65.5899, -40.363, 65.5899, 200, 320, 33.6358, -82.4078, -33.6358, 82.4078, 96, 328, 0, 0, 0, 0, -48, 344, 65.5899, 35.3176, -65.5899, -35.3176, -168, 336, 26.9087, 68.9535, -26.9087, -68.9535, -256, 296, 0, 0, 0, 0, -320, 248, 0, 0, 0, 0, -376, 160, 134.543, -84.0896, -134.543, 84.0896, -392, 80, 0, 0, 0, 0, -464, 8, -53.8173, -1.68179, 53.8173, 1.68179, -416, -48, -47.0902, -23.5451, 47.0902, 23.5451, -384, -144, 0, 0, 0, 0, -352, -208 )
 }
 
 [node name="BaseEnemiga" type="Node2D" groups=[
@@ -157,8 +157,8 @@ margin_top = -350.0
 margin_right = 102.0
 margin_bottom = -323.0
 rect_rotation = 0.0
-custom_styles/fg = SubResource( 7 )
-custom_styles/bg = SubResource( 8 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 siempreVisible = true
 
 [node name="AreaColision" type="Area2D" parent="."]
@@ -168,17 +168,17 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaColision"]
 position = Vector2( 0, -40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaColision"]
 position = Vector2( 96, -80 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaColision"]
 position = Vector2( -72, -80 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="AreaAtraccion" parent="." instance=ExtResource( 1 )]
 position = Vector2( 8, 0 )
@@ -190,9 +190,9 @@ modulate = Color( 0.262745, 0.647059, 0.929412, 0 )
 visible = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 3 )
-anims/rotacionAntihorario = SubResource( 4 )
-anims/rotacionHorario = SubResource( 5 )
+anims/default = SubResource( 5 )
+anims/rotacionAntihorario = SubResource( 6 )
+anims/rotacionHorario = SubResource( 7 )
 
 [node name="ImpactoSFX" type="AudioStreamPlayer2D" parent="."]
 
@@ -215,7 +215,7 @@ position = Vector2( 0, 320 )
 
 [node name="RutaEnemiga" type="Path2D" parent="."]
 position = Vector2( 32, -8 )
-curve = SubResource( 6 )
+curve = SubResource( 8 )
 
 [node name="TimerSpawnerEnemigo" type="Timer" parent="."]
 

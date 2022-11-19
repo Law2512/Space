@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Estacion/EstacionEnemiga/BaseEnemiga.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 649.122, 584.129 )
+
+[node name="Nivel7" instance=ExtResource( 1 )]
+proxNivel = "res://Juego/Niveles/Nivel8.tscn"
+
+[node name="StarFieldBackground" parent="." index="1"]
+colorFondo = Color( 0.180392, 0.0352941, 0.345098, 1 )
+
+[node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 4 )]
+position = Vector2( 2231.32, -37.755 )
+tipoPeligro = "Enemigo"
+numeroPeligros = 2
+
+[node name="CollisionShape2D" parent="TriggersInterceptores/SectorDePeligro" index="0"]
+shape = SubResource( 1 )
+
+[node name="EstacionRecarga2" parent="EstacionesRecarga" index="0" instance=ExtResource( 3 )]
+position = Vector2( 2991.4, 2103.55 )
+
+[node name="BaseEnemiga2" parent="BasesEnemigas" index="0" instance=ExtResource( 2 )]
+position = Vector2( 3488.56, -860.813 )
+
+[editable path="TriggersInterceptores/SectorDePeligro"]

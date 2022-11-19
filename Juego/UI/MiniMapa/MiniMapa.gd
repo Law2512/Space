@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("minimapa"):
 		setEstaVisible(not estaVisible)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not player:
 		return
 	

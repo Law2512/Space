@@ -28,11 +28,11 @@ func getEscudo() -> Escudo:
 func _ready() -> void:
 	DatosJuego.setPlayerActual(self)
 
-func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+func _integrate_forces(_state: Physics2DDirectBodyState) -> void:
 	apply_central_impulse(empuje.rotated(rotation))
 	apply_torque_impulse(dirRotacion * potenciaRotacion)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	playerInput()
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -69,10 +69,10 @@ proyectil = ExtResource( 4 )
 cadenciaDisparo = 1.5
 
 [node name="PuntoIzquierdo" parent="Canion" index="0"]
-position = Vector2( 23.3345, -4.5962 )
+position = Vector2( 23.3345, -13.0962 )
 
 [node name="PuntoDerecho" parent="Canion" index="1"]
-position = Vector2( 23.6448, 4.28593 )
+position = Vector2( 23.6448, 12.7859 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 autoplay = "spawn"

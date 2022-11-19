@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Juego/Niveles/NivelBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Estacion/EstacionEnemiga/BaseEnemiga.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 659.731, 68 )
+
+[node name="Nivel8" instance=ExtResource( 1 )]
+tiempoLimite = 60
+
+[node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 2 )]
+position = Vector2( 932.346, -177.946 )
+numeroPeligros = 8
+
+[node name="CollisionShape2D" parent="TriggersLluviaMeteoritos/SectorDePeligro" index="0"]
+shape = SubResource( 1 )
+
+[node name="SectorDePeligro2" parent="TriggersLluviaMeteoritos" index="1" instance=ExtResource( 2 )]
+position = Vector2( 932.346, 1285.05 )
+numeroPeligros = 5
+
+[node name="CollisionShape2D" parent="TriggersLluviaMeteoritos/SectorDePeligro2" index="0"]
+shape = SubResource( 1 )
+
+[node name="EstacionRecarga" parent="EstacionesRecarga" index="0" instance=ExtResource( 3 )]
+position = Vector2( 927.13, 2373.11 )
+
+[node name="BaseEnemiga" parent="BasesEnemigas" index="0" instance=ExtResource( 4 )]
+position = Vector2( 978.165, -1543.8 )
+
+[editable path="TriggersLluviaMeteoritos/SectorDePeligro"]
+[editable path="TriggersLluviaMeteoritos/SectorDePeligro2"]

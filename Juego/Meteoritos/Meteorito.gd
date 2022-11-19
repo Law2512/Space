@@ -30,7 +30,7 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 	miTransform.origin = posSpawnOriginal
 	linear_velocity = velSpawnOriginal
 	state.set_transform(miTransform)
-	estaEnSector = true	
+	estaEnSector = true
 
 ##Metodos Custom
 func recibirDanio(danio: float) -> void:
@@ -68,6 +68,4 @@ func crear(pos: Vector2, dir: Vector2, tamanio: float) -> void:
 	angular_velocity = (velAngBase / tamanio) * aleatorizarVelocidad()
 	#Calcular hitpoints
 	hitpoints = hitpointsBase * tamanio
-	#Solo Debug
-	print("hitpoints: ", hitpoints)
 

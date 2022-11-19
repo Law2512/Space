@@ -58,6 +58,7 @@ func _on_cambioNumeroMeteoritos(numero: int) -> void:
 	)
 
 func _on_actualizarTiempo(tiempo: int) -> void:
+# warning-ignore:narrowing_conversion
 	var minutos:int = floor(tiempo * 0.01666666666667)
 	var segundos:int = tiempo % 60
 	infoTiempoRestante.modificarTexto(

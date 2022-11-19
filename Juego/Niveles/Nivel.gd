@@ -13,6 +13,7 @@ export var musicaNivel:AudioStream = null
 export var musicaCombate:AudioStream = null
 export var tiempoTransicionCamara:float = 2.0
 export var tiempoLimite:int = 10
+export(String, FILE, "*.tscn") var proxNivel = ""
 
 ##Atributos Onready
 onready var contenedorProyectiles:Node
@@ -50,6 +51,12 @@ func conectarSeniales() -> void:
 	Eventos.connect("naveSectorPeligro", self, "_on_naveSectorPeligro")
 	Eventos.connect("baseDestruida", self, "_on_baseDestruida")
 	Eventos.connect("spawnOrbital", self, "_on_spawnOrbital")
+	Eventos.connect("nivelCompletado", self, "_on_nivelCompletado")
+
+func _on_nivelCompletado() -> void:
+	Eventos.emit_signal("nivelTerminado")
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().change_scene(proxNivel)
 
 func destruirNivel() -> void:
 	crearExplosion(
@@ -125,13 +132,13 @@ func crearRele() -> void:
 	newReleMasa.global_position = player.global_position + (margen + posAleatoria)
 	add_child(newReleMasa)
 
-func transicionCamaras(desde: Vector2, hasta: Vector2, camaraActual: Camera2D, tiempoTransicion) -> void:
+func transicionCamaras(desde: Vector2, hasta: Vector2, camaraActual: Camera2D, tiempoTransicion: float) -> void:
 	$TweenCamara.interpolate_property(
 		camaraActual,
 		"global_position",
 		desde,
 		hasta,
-		tiempoTransicionCamara,
+		tiempoTransicion,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 	)
@@ -170,7 +177,6 @@ func crearExplosion(
 					)
 				add_child(newExplosion)
 				yield(get_tree().create_timer(0.6), "timeout")
-				newExplosion.queue_free()
 
 ##Conexion señales externas
 func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -> void:
@@ -187,8 +193,8 @@ func _on_nave_destruida(nave: Player, posicion: Vector2, num_explosiones: int) -
 
 func _on_baseDestruida(_base: Node2D, posPartes: Array) -> void:
 	for posicion in posPartes:
-		crearExplosion(posicion)
-		yield(get_tree().create_timer(0.5), "timeout")
+		crearExplosion(posicion, 2.0)
+		yield(get_tree().create_timer(1.0), "timeout")
 	
 	numeroBasesEnemigas -= 1
 	if numeroBasesEnemigas == 0:
@@ -221,7 +227,7 @@ func _on_spawnOrbital(enemigo: EnemigoOrbital) -> void:
 	contenedorEnemigos.add_child(enemigo)
 
 ##Señales Internas
-func _on_TweenCamara_tween_completed(object: Object, key: NodePath) -> void:
+func _on_TweenCamara_tween_completed(object: Object, _key: NodePath) -> void:
 	if object.name == "CameraPlayer":
 		object.global_position = $Player.global_position
 

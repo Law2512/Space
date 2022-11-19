@@ -32,6 +32,5 @@ func _on_DetectorPlayer_body_entered(body: Node) -> void:
 	body.desactivarControl()
 	atraerPlayer(body)
 
-
 func _on_Tween_tween_all_completed() -> void:
-	print("bien hecho cabron, alguien traigame unas alitas de pollo con fruta wey, cuchau, 441122 medios y estrategias")
+	Eventos.emit_signal("nivelCompletado")
