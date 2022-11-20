@@ -176,18 +176,21 @@ texture = ExtResource( 1 )
 "anims/Daño" = SubResource( 1 )
 
 [node name="MeteoritoPequeño2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0.401886, -1.51843 )
 z_index = 1
 z_as_relative = false
 texture = ExtResource( 4 )
 
 [node name="MeteoritoPequeño3" type="Sprite" parent="."]
+visible = false
 position = Vector2( -1.38194, -0.92382 )
 z_index = 1
 z_as_relative = false
 texture = ExtResource( 6 )
 
 [node name="MeteoritoPequeño" type="Sprite" parent="."]
+visible = false
 position = Vector2( -0.192688, -0.923828 )
 z_index = 1
 z_as_relative = false

@@ -1,0 +1,28 @@
+NOTAS
+No pude hacer andar el zoom con el suavizado, pero el zoom está
+
+CONTROLES
+
+MOVIMIENTO
+- WASD
+
+ESCUDO
+- Q / RUEDA DEL MOUSE
+
+DISPARO PRINCIPAL
+- CLICK IZQUIERDO
+
+DISPARO SECUNDARIO
+- CLICK DERECHO
+
+RECARGA ESCUDO
+- E
+
+RECARGA LASER
+- R
+
+ZOOM IN
+- +
+
+ZOOOM OUT
+- -

@@ -9,7 +9,7 @@ enum ESTADO_IA {IDLE, ATACANDOQ, ATACANDOP, PERSECUCION}
 export var potenciaMax:float = 800.0
 
 ##Atributos
-var estadoIAActual:int = ESTADO_IA.IDLE
+var estadoIAActual:int = ESTADO_IA.ATACANDOP
 var potenciaActual:float = 0.0
 
 ##Metodos

@@ -6,7 +6,7 @@
 [ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 386.126, 68 )
+extents = Vector2( 386.126, 229.83 )
 
 [node name="Nivel3" instance=ExtResource( 1 )]
 tiempoLimite = 90
@@ -16,7 +16,7 @@ proxNivel = "res://Juego/Niveles/Nivel4.tscn"
 colorFondo = Color( 0.164706, 0.0470588, 0.192157, 1 )
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 3 )]
-position = Vector2( 964.496, -292.028 )
+position = Vector2( 2263.27, 493.275 )
 
 [node name="CollisionShape2D" parent="TriggersLluviaMeteoritos/SectorDePeligro" index="0"]
 shape = SubResource( 1 )
@@ -25,6 +25,6 @@ shape = SubResource( 1 )
 position = Vector2( 926.988, 1551.23 )
 
 [node name="BaseEnemiga" parent="BasesEnemigas" index="0" instance=ExtResource( 2 )]
-position = Vector2( 905.555, -1945.07 )
+position = Vector2( 4265.75, 441.044 )
 
 [editable path="TriggersLluviaMeteoritos/SectorDePeligro"]

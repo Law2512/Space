@@ -5,10 +5,10 @@
 [ext_resource path="res://Juego/Peligro/SectorDePeligro.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Juego/Estacion/EstacionRecarga.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1894.97, 68 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 786.149, 68 )
 
 [node name="Nivel6" instance=ExtResource( 1 )]
@@ -24,7 +24,7 @@ numeroPeligros = 4
 
 [node name="CollisionShape2D" parent="TriggersLluviaMeteoritos/SectorDePeligro" index="0"]
 position = Vector2( 114.422, -25.4271 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="SectorDePeligro" parent="TriggersInterceptores" index="0" instance=ExtResource( 3 )]
 position = Vector2( 2109.78, 1442.17 )
@@ -33,13 +33,18 @@ numeroPeligros = 2
 
 [node name="CollisionShape2D" parent="TriggersInterceptores/SectorDePeligro" index="0"]
 rotation = -0.698132
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="EstacionRecarga" parent="EstacionesRecarga" index="0" instance=ExtResource( 4 )]
-position = Vector2( 665.343, -2169.78 )
+position = Vector2( 1167.24, -2223.17 )
 
 [node name="BaseEnemiga" parent="BasesEnemigas" index="0" instance=ExtResource( 2 )]
 position = Vector2( 3817.93, 2629.31 )
+
+[node name="BaseEnemiga2" parent="BasesEnemigas" index="1" instance=ExtResource( 2 )]
+position = Vector2( -1436, 2319.63 )
+hitpoints = 15.0
+numOrbitales = 3
 
 [node name="Player" parent="." index="11"]
 position = Vector2( 932.017, 459.012 )

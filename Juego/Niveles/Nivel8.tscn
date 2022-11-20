@@ -10,6 +10,7 @@ extents = Vector2( 659.731, 68 )
 
 [node name="Nivel8" instance=ExtResource( 1 )]
 tiempoLimite = 60
+proxNivel = "res://Juego/Niveles/Nivel9.tscn"
 
 [node name="SectorDePeligro" parent="TriggersLluviaMeteoritos" index="0" instance=ExtResource( 2 )]
 position = Vector2( 932.346, -177.946 )
