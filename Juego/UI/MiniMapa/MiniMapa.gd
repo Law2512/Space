@@ -114,6 +114,7 @@ func _on_naveDestruida(nave: NaveBase, _posicion, _explosiones) -> void:
 	if nave is Player:
 		player = null
 
+##Conexion Seniales Internas
 func _on_TimerVisibilidad_timeout() -> void:
 	if estaVisible:
 		setEstaVisible(false)
